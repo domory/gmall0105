@@ -1,9 +1,12 @@
 package com.wh.gmall.manage.controller;
 
 
+import com.alibaba.dubbo.config.annotation.Reference;
+import com.wh.gmall.bean.PmsProductImage;
 import com.wh.gmall.bean.PmsProductInfo;
+import com.wh.gmall.bean.PmsProductSaleAttr;
+import com.wh.gmall.manage.util.PmsUploadUtil;
 import com.wh.gmall.service.SpuService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -14,7 +17,7 @@ import java.util.List;
 @CrossOrigin
 public class SpuController {
 
-    @Autowired
+    @Reference
     SpuService spuService;
 
 
@@ -26,14 +29,29 @@ public class SpuController {
 
         //将图片的imgUrl返回给前端
 
-        String imgUrl= "https://m.360buyimg.com/babel/jfs/t5137/20/1794970752/352145/d56e4e94/591417dcN4fe5ef33.jpg";
+        String imgUrl= PmsUploadUtil.uploadImage(multipartFile);
+        System.out.println(imgUrl);
         return imgUrl;
+    }
+
+    @RequestMapping("spuImageList")
+    @ResponseBody//spuImageList?spuId=24
+    public List<PmsProductImage> spuImageList(String spuId){
+        List<PmsProductImage> pmsProductImageList= spuService.spuImageList(spuId);
+        return pmsProductImageList;
+    }
+
+    @RequestMapping("spuSaleAttrList")
+    @ResponseBody//spuSaleAttrList?spuId=24
+    public List<PmsProductSaleAttr> spuSaleAttrList(String spuId){
+        List<PmsProductSaleAttr> pmsProductSaleAttrList= spuService.spuSaleAttrList(spuId);
+        return pmsProductSaleAttrList;
     }
 
     @RequestMapping("saveSpuInfo")
     @ResponseBody//catalog3Id=61
     public String saveSpuInfo(@RequestBody PmsProductInfo pmsProductInfo){
-       // String c= spuService.saveSpuInfo(pmsProductInfo);
+        spuService.saveSpuInfo(pmsProductInfo);
         return "success";
     }
 

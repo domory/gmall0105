@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wh.gmall.manage.Mapper.PmsBaseAttrInfoMapper">
+<select id="selectPmsBaseAttrInfoByValueId" resultMap="selectPmsBaseAttrInfoByValueIdMap">
+SELECT DISTINCT pbsi.*,pbsi.id as pbsi_id,pbav.*,pbav.id as pbav_id
+FROM pms_base_attr_info pbsi,pms_base_attr_value pbav
+where pbsi.id=pbav.attr_id  and pbav.id in(${valuedIds})
+</select>
+    <resultMap id="selectPmsBaseAttrInfoByValueIdMap" type="com.wh.gmall.bean.PmsBaseAttrInfo" autoMapping="true">
+        <result column="pbsi_id" property="id"></result>
+        <collection property="attrValueList" ofType="com.wh.gmall.bean.PmsBaseAttrValue" autoMapping="true">
+            <result column="pbav_id" property="id"></result>
+        </collection>
+    </resultMap>
+</mapper>

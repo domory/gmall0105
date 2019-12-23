@@ -5,6 +5,9 @@ import javax.persistence.Id;
 import javax.persistence.Transient;
 import java.io.Serializable;
 
+/**
+ * @author DOMORY
+ */
 public class PmsProductSaleAttrValue implements Serializable {
     @Id
     @Column

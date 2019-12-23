@@ -1,23 +1,25 @@
 package com.wh.gmall.manage.controller;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.wh.gmall.bean.PmsBaseCatalog1;
 import com.wh.gmall.bean.PmsBaseCatalog2;
 import com.wh.gmall.bean.PmsBaseCatalog3;
 import com.wh.gmall.service.CatalogService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
+/**
+ * @author DOMORY
+ */
 @Controller
-@CrossOrigin//跨端口交互
+@CrossOrigin
 public class CatalogController {
 
-    @Autowired
+    @Reference
     CatalogService catalogService;
 
     @RequestMapping("getCatalog3")

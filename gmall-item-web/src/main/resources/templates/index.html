@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+${1}
+sd
+<br>
+
+<p th:text="${s}">大</p>
+
+<p th:each="str:${list}">
+    <input th:text="${str}" th:value="${str}"/>
+</p>
+
+<p th:if="1==2">wo </p>
+
+<input type="checkbox" th:checked="(${check}=='1')" th:text="(${check=='1'})?'对啦':'不对'"/>
+
+<a th:href="'javascript:f(\''+${s}+'\')'">点</a>
+
+<div th:include="index1::part">内部特么</div>
+
+
+<script lang="JavaScript">
+    function f(h) {
+        alert("js被函数调用" + h)
+
+    }
+
+</script>
+</body>
+</html>
