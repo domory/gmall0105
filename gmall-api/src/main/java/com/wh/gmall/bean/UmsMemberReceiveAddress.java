@@ -11,9 +11,9 @@ import java.io.Serializable;
 public class UmsMemberReceiveAddress implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
-    private Long memberId;
+    private String memberId;
 
     /**
      * 收货人名称
@@ -54,19 +54,19 @@ public class UmsMemberReceiveAddress implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public Long getMemberId() {
+    public String getMemberId() {
         return memberId;
     }
 
-    public void setMemberId(Long memberId) {
+    public void setMemberId(String memberId) {
         this.memberId = memberId;
     }
 

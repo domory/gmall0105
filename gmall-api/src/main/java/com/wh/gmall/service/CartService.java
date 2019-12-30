@@ -16,4 +16,6 @@ public interface CartService {
     List<OmsCartItem> cartList(String memberId);
 
     void checkCart(OmsCartItem omsCartItem);
+
+    void deleteCart(String productSkuId, String memberId);
 }

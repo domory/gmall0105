@@ -6,5 +6,15 @@ import java.util.List;
 
 public interface UserService {
     List<UmsMember> getAllUSer();
-    List<UmsMemberReceiveAddress> getMemberAddressById(Integer Id);
+    List<UmsMemberReceiveAddress> getMemberAddressByMemberId(String memberId);
+
+    UmsMember login(UmsMember umsMember);
+
+    void addToken(Long id, String token);
+
+    void addOauthUser(UmsMember umsMember);
+
+    UmsMember getOauthUser(Long sourceUid);
+
+    UmsMemberReceiveAddress getMemberAddressById(String receiveAddressId);
 }

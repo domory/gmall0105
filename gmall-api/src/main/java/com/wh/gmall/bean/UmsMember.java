@@ -99,6 +99,34 @@ public class UmsMember implements Serializable {
      */
     private Integer historyIntegration;
 
+    private Long sourceUid;
+    private String accessToken;
+    private String accessCode;
+
+    public Long getSourceUid() {
+        return sourceUid;
+    }
+
+    public void setSourceUid(Long sourceUid) {
+        this.sourceUid = sourceUid;
+    }
+
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+    }
+
+    public String getAccessCode() {
+        return accessCode;
+    }
+
+    public void setAccessCode(String accessCode) {
+        this.accessCode = accessCode;
+    }
+
     private static final long serialVersionUID = 1L;
 
     public Long getId() {

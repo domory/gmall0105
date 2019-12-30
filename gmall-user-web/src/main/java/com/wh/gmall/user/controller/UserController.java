@@ -23,9 +23,9 @@ public class UserController {
 
     @RequestMapping("getMemberAddressById")
     @ResponseBody
-    public List<UmsMemberReceiveAddress> getMemberAddressById(Integer Id){
+    public List<UmsMemberReceiveAddress> getMemberAddressByMemberId(String MemberId){
 
-        List<UmsMemberReceiveAddress> umsMemberReceiveAddressList= userService.getMemberAddressById(Id);
+        List<UmsMemberReceiveAddress> umsMemberReceiveAddressList= userService.getMemberAddressByMemberId(MemberId);
 
         return umsMemberReceiveAddressList;
     }
@@ -39,9 +39,5 @@ public class UserController {
         return umsMemberList;
     }
 
-    @RequestMapping("index")
-    @ResponseBody
-    public String d(){
-        return "fuck huabang";
-    }
+
 }

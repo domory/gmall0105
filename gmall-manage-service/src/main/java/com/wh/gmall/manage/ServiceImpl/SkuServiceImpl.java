@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import redis.clients.jedis.Jedis;
 import tk.mybatis.mapper.entity.Example;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
@@ -150,5 +151,18 @@ public class SkuServiceImpl implements SkuService {
         }
             return pmsSkuInfos;
 
+    }
+
+    @Override
+    public boolean checkPrice(String productSkuId, BigDecimal price) {
+        boolean b=false;
+        Example example=new Example(PmsSkuInfo.class);
+        example.createCriteria().andEqualTo("id",productSkuId);
+        PmsSkuInfo pmsSkuInfo = pmsSkuInfoMapper.selectOneByExample(example);
+        BigDecimal price1 = pmsSkuInfo.getPrice();
+        if(price.compareTo(price1)==0){
+            b=true;
+        }
+        return b;
     }
 }

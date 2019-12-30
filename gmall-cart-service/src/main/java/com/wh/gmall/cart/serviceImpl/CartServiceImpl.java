@@ -96,4 +96,11 @@ public class CartServiceImpl implements CartService {
         //修改完数据库后进行缓存同步
         flushCartCaChe(omsCartItem.getMemberId());
     }
+
+    @Override
+    public void deleteCart(String productSkuId, String memberId) {
+        Example example=new Example(OmsCartItem.class);
+        example.createCriteria().andEqualTo("productSkuId",productSkuId).andEqualTo("memberId",memberId);
+        omsCartItemMapper.deleteByExample(example);
+    }
 }
