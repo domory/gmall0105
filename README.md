@@ -22,6 +22,8 @@ gmall-user-service服务8070
 
 gmall-order-web 用户认证中心 8086
 gmall-order-service服务8076
+
+gmall-payment 8087
 #对于一个新的技术需要整合到spring中，1.需要引入pom依赖 2.写一个使用的工具类和spring整合的配置类。(在service-util中创建两个类RedisConfig
 #和RedisUtil，RedisConfig负责在spring容器启动时自动注入，而RedisUtil就是被注入的工具类以供其他模块调用。任何模块想要调用redis都必须在
 #application.properties配置，否则不会进行注入)

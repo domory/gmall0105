@@ -8,9 +8,9 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <groupId>com.wh.gmall</groupId>
-    <artifactId>gmall-passport-web</artifactId>
+    <artifactId>gmall-payment</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>gmall-passport-web</name>
+    <name>gmall-payment</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
